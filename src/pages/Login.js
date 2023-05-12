@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
   const navigate = useNavigate();
-  const { user, login, isError, dispatch } = useAuth();
+  const { user, login,isLoading, isError, dispatch } = useAuth();
   const [loginData, setLoginData] = React.useState({
     email: "",
     password: "",
@@ -67,7 +67,7 @@ function Login() {
             onChange={handleChange}
           />
         </div>
-        <button className="btn btn-reverse" type="submit">
+        <button className="btn btn-reverse" type="submit" disabled={isLoading}>
           Login
         </button>
       </form>

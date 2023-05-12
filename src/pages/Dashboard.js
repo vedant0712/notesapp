@@ -8,7 +8,7 @@ import { useNotes } from "../contexts/NotesContext";
 
 function Dashboard() {
   const { user, isLoading } = useAuth();
-  const { notes, isNoteLoading, getNotes, addNote, updateNote, deleteNote } =
+  const { notes, isNoteLoading, getNotes, addNote, updateNote, deleteNote ,isError,dispatch} =
     useNotes();
   const [activeNote, setActiveNote] = React.useState(null);
   const [showNoteForm, setShowNoteForm] = React.useState(false);
@@ -70,6 +70,8 @@ function Dashboard() {
           addNote={addNote}
           updateNote={updateNote}
           setShowNoteForm={setShowNoteForm}
+          isError={isError}
+          dispatch={dispatch}
         />
       )}
     </>

@@ -7,7 +7,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 
 function Register() {
   const navigate = useNavigate();
-  const { user, isError, register, dispatch } = useAuth();
+  const { user, isLoading, isError, register, dispatch } = useAuth();
   const [registrationData, setRegistrationData] = React.useState({
     name: "",
     email: "",
@@ -109,7 +109,7 @@ function Register() {
           sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
           onChange={handleRecaptchaChange}
         />
-        <button className="btn btn-reverse" type="submit">
+        <button className="btn btn-reverse" type="submit" disabled={isLoading}>
           Register
         </button>
       </form>
